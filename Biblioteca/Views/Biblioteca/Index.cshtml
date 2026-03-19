@@ -1,10 +1,21 @@
 @model List<Biblioteca.Models.Livro>;
 
+<h1>Biblioteca #####</h1>
+<p>Bem-vindo à nossa <b>Biblioteca digital</b>. Aqui você pode encontrar sua obra favorita entre nosso extenso catálogo.</p>
 
-@foreach (Livro item in Model) {
-    <h3>Nome: @item.Titulo</h3>
-    <p>Número de páginas: @item.NumPaginas</p>
-    <p>Autor: @item.Autor</p>
-    <p>Gênero: @item.Genero</p>
-    <p>Data de publicação: @item.DataPublicacao</p>
-}
+<div>
+    <h2 class="text-center mb-4">Top Vendas &#11088</h2>
+    <div class="d-flex justify-content-evenly">
+        @foreach (var livro in Model) 
+        {
+            <div class="border border-primary rounded-4 border-3 p-4 bg-success">
+                <h5 class="fw-bold">@livro.Titulo</h5>
+                <p>Autor: <spam class="fst-italic">@livro.Autor<spam/></p>
+                <p>Número de páginas: <spam class="fst-italic">@livro.NumPaginas<spam/></p>
+                <p>Gênero: <spam class="fst-italic">@livro.Genero<spam/></p>
+                <p>Data de publicação: <spam class="fst-italic">@livro.DataPublicacao<spam/></p>
+            </div>
+
+        } 
+    </div>
+</div>
