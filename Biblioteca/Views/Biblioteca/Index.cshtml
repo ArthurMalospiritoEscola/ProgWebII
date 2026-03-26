@@ -1,16 +1,16 @@
 @model List<Biblioteca.Models.Livro>;
 
-<h1>Biblioteca #####</h1>
+<h1 class="fw-bold" style="color: red;">Hallfomesteca</h1>
 <p>Bem-vindo à nossa <b>Biblioteca digital</b>. Aqui você pode encontrar sua obra favorita entre nosso extenso catálogo.</p>
 
 <div class="pt-4 pb-4 p-0 container-fluid mb-5">
-    <h2 class="text-center mb-4">Top Vendas &#11088</h2>
+    <h2 class="text-center mb-4"><b><i>Top Vendas</i></b></h2>
     <div class="row d-flex justify-content-around">
         @foreach (var livro in Model) 
         {
             <div class="col mb-4 d-flex"style="max-width: 550px;">
                 <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex ">
-                    <img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-thumbnail">
+                    <img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-thumbnail" style="max-height: 400px; object-fit: contain;">
 
                     <div class="m-3">
                         <h5 class="fw-bold">@livro.Titulo</h5>
