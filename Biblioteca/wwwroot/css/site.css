@@ -29,3 +29,15 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.underline-hover:hover {
+  text-decoration: underline;
+}
+
+.a-selected {
+  text-decoration: underline;
+}
+
+.mb-6 {
+  margin-bottom: 5rem;
+}
