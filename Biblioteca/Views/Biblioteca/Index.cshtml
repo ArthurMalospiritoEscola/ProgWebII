@@ -10,11 +10,11 @@
         {
             <div class="col mb-4 d-flex"style="max-width: 550px;">
                 <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex ">
-                    <img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-thumbnail" style="max-height: 400px; object-fit: contain;">
+                    <a href="/Biblioteca/Livro?=@livro.Id"><img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-thumbnail" style="max-height: 400px; object-fit: contain;"></a>
 
                     <div class="m-3">
                         <h5 class="fw-bold">@livro.Titulo</h5>
-                        <p>Autor: <span class="fst-italic">@livro.Autor<span/></p>
+                        <p>Autor: <span class="fst-italic"><a href="/Biblioteca/Autor?=@livro.Autor.Id" class="text-white hover-brightness">@livro.Autor.Nome</a><span/></p>
                         <p>Número de páginas: <span class="fst-italic">@livro.NumPaginas<span/></p>
                         <p>Gênero: <span class="fst-italic">@livro.Genero<span/></p>
                         <p>Data de publicação: <span class="fst-italic">@livro.DataPublicacao<span/></p>

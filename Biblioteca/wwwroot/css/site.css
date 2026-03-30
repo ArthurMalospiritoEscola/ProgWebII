@@ -41,3 +41,11 @@ body {
 .mb-6 {
   margin-bottom: 5rem;
 }
+
+.hover-brightness {
+  transition: 0.15s;
+}
+
+.hover-brightness:hover {
+  filter: brightness(75%);
+}

@@ -1,0 +1,35 @@
+@model List<Biblioteca.Models.Autor>;
+
+<h1 class="mb-4 text-center">Nossos Autores:</h1>
+
+<h2 class="text-center"><b>Autores</b></h2>
+<div id="carousel1" class="carousel slide mb-6">
+  <div class="carousel-inner">
+      @for (int i=0; i< Model.Count; i+=3) 
+      {
+          <div class="carousel-item @(i==0 ? "active" : "")">
+            <div class="row justify-content-center">
+              @for (int j=i;j<i+3;j++) {
+                @if (j<Model.Count) {
+                  <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
+                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                          <h4 class="fw-bold text-center">@Model[j].Nome</h4>
+                          <a href="/Biblioteca/Autor?=@j" class="align-self-center"><img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-fluid" style="max-height: 200px; object-fit: contain;"></a>
+                      </div>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+  
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

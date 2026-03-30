@@ -3,7 +3,7 @@
 
 <h1 class="mb-4 text-center">Nossos Livros:</h1>
 
-<h2 class="text-center"><b>Terror</b></h2>
+<h2 class="text-center"><b>Livros 1</b></h2>
 <div id="carousel1" class="carousel slide mb-6">
   <div class="carousel-inner">
       @for (int i=0; i< Model.Count; i+=3) 
@@ -15,7 +15,7 @@
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
                       <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
                           <h4 class="fw-bold text-center">@Model[j].Titulo</h4>
-                          <img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-fluid" style="max-height: 200px; object-fit: contain;">
+                          <a href="/Biblioteca/Livro?=@j" class="align-self-center"><img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-fluid" style="max-height: 200px; object-fit: contain;"></a>
                       </div>
                   </div>
                 }
@@ -36,7 +36,7 @@
 </div>
 
 
-<h2 class=" mb-4 text-center"><b>Legal</b></h2>
+<h2 class=" mb-4 text-center"><b>Livros 2</b></h2>
 <div id="carousel2" class="carousel slide mb-6">
   <div class="carousel-inner">
       @for (int i=0; i< Model.Count; i+=3) 
@@ -48,7 +48,7 @@
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
                       <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
                           <h4 class="fw-bold text-center">@Model[j].Titulo</h4>
-                          <img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-fluid" style="max-height: 200px; object-fit: contain;">
+                          <a href="/Biblioteca/Livro?=@j" class="align-self-center"><img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-fluid" style="max-height: 200px; object-fit: contain;"></a>
                       </div>
                   </div>
                 }
