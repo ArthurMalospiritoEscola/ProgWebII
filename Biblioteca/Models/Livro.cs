@@ -10,12 +10,16 @@ public class Livro {
     public string? Genero {get;set;}
     public DateOnly DataPublicacao {get;set;}
 
+    public string? ImageName {get;set;}
 
-    public Livro(int numPaginas, Autor autor, string titulo, string genero, DateOnly dataPublicacao) {
+
+    public Livro(int id, string titulo,Autor autor, int numPaginas, string genero, DateOnly dataPublicacao, string imageName) {
+        this.Id = id;
         this.NumPaginas = numPaginas;
         this.Autor = autor;
         this.Titulo = titulo;
         this.Genero = genero;
         this.DataPublicacao = dataPublicacao;
+        this.ImageName=imageName;
     }
 }

@@ -5,8 +5,9 @@ public class Autor
     public int Id {get;set;}
     public string? Nome {get;set;}
 
-    public Autor(string Nome)
-    {
+    public Autor(int id,string Nome)
+    {   
+        this.Id =id;
         this.Nome= Nome;
     }
 }
