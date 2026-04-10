@@ -1,21 +1,21 @@
-@model List<Biblioteca.Models.Livro>;
+@model (List<Livro> Romances,List<Livro> Ficcoes,List<Livro> Biografias,List<Livro> Tragedias,List<Livro> Poemas);
 
 
 <h1 class="mb-4 text-center">Nossos Livros:</h1>
 
-<h2 class="text-center"><b>Livros 1</b></h2>
+<h2 class="text-center"><b>Romances</b></h2>
 <div id="carousel1" class="carousel slide mb-6">
   <div class="carousel-inner">
-      @for (int i=0; i< Model.Count; i+=3) 
+      @for (int i=0; i< Model.Romances.Count; i+=3) 
       {
           <div class="carousel-item @(i==0 ? "active" : "")">
             <div class="row justify-content-center">
               @for (int j=i;j<i+3;j++) {
-                @if (j<Model.Count) {
+                @if (j<Model.Romances.Count) {
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
                       <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
-                          <h4 class="fw-bold text-center">@Model[j].Titulo</h4>
-                          <a href="/Biblioteca/Livro?=@j" class="align-self-center"><img src="~/images/@Model[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 200px; object-fit: contain;"></a>
+                          <h4 class="fw-bold text-center">@Model.Romances[j].Titulo</h4>
+                          <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Romances[j].Id" class="align-self-center"><img src="~/images/@Model.Romances[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
                       </div>
                   </div>
                 }
@@ -36,19 +36,115 @@
 </div>
 
 
-<h2 class=" mb-4 text-center"><b>Livros 2</b></h2>
+<h2 class=" mb-4 text-center"><b>Ficção</b></h2>
 <div id="carousel2" class="carousel slide mb-6">
   <div class="carousel-inner">
-      @for (int i=0; i< Model.Count; i+=3) 
+      @for (int i=0; i< Model.Ficcoes.Count; i+=3) 
       {
           <div class="carousel-item @(i==0 ? "active" : "")">
             <div class="row justify-content-center">
               @for (int j=i;j<i+3;j++) {
-                @if (j<Model.Count) {
+                @if (j<Model.Ficcoes.Count) {
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
                       <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
-                          <h4 class="fw-bold text-center">@Model[j].Titulo</h4>
-                          <a href="/Biblioteca/Livro?=@j" class="align-self-center"><img src="~/images/Cabajo.jpg" alt="Cabajo" class="img-fluid" style="max-height: 200px; object-fit: contain;"></a>
+                          <h4 class="fw-bold text-center">@Model.Ficcoes[j].Titulo</h4>
+                          <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Ficcoes[j].Id" class="align-self-center"><img src="~/images/@Model.Ficcoes[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
+                      </div>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+  
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<h2 class=" mb-4 text-center"><b>Biografias</b></h2>
+<div id="carousel2" class="carousel slide mb-6">
+  <div class="carousel-inner">
+      @for (int i=0; i< Model.Biografias.Count; i+=3) 
+      {
+          <div class="carousel-item @(i==0 ? "active" : "")">
+            <div class="row justify-content-center">
+              @for (int j=i;j<i+3;j++) {
+                @if (j<Model.Biografias.Count) {
+                  <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
+                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                          <h4 class="fw-bold text-center">@Model.Biografias[j].Titulo</h4>
+                          <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Biografias[j].Id" class="align-self-center"><img src="~/images/@Model.Biografias[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
+                      </div>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+  
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<h2 class=" mb-4 text-center"><b>Tragédias</b></h2>
+<div id="carousel2" class="carousel slide mb-6">
+  <div class="carousel-inner">
+      @for (int i=0; i< Model.Tragedias.Count; i+=3) 
+      {
+          <div class="carousel-item @(i==0 ? "active" : "")">
+            <div class="row justify-content-center">
+              @for (int j=i;j<i+3;j++) {
+                @if (j<Model.Tragedias.Count) {
+                  <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
+                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                          <h4 class="fw-bold text-center">@Model.Tragedias[j].Titulo</h4>
+                          <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Tragedias[j].Id" class="align-self-center"><img src="~/images/@Model.Tragedias[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
+                      </div>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+  
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<h2 class=" mb-4 text-center"><b>Poemas</b></h2>
+<div id="carousel2" class="carousel slide mb-6">
+  <div class="carousel-inner">
+      @for (int i=0; i< Model.Poemas.Count; i+=3) 
+      {
+          <div class="carousel-item @(i==0 ? "active" : "")">
+            <div class="row justify-content-center">
+              @for (int j=i;j<i+3;j++) {
+                @if (j<Model.Poemas.Count) {
+                  <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
+                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                          <h4 class="fw-bold text-center">@Model.Poemas[j].Titulo</h4>
+                          <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Poemas[j].Id" class="align-self-center"><img src="~/images/@Model.Poemas[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
                       </div>
                   </div>
                 }
