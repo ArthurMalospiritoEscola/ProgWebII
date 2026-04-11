@@ -13,7 +13,7 @@
               @for (int j=i;j<i+3;j++) {
                 @if (j<Model.Romances.Count) {
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
-                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                      <div class="container-sm border  rounded-4 border-3 p-4 bg-success d-flex flex-column">
                           <h4 class="fw-bold text-center">@Model.Romances[j].Titulo</h4>
                           <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Romances[j].Id" class="align-self-center"><img src="~/images/@Model.Romances[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
                       </div>
@@ -46,7 +46,7 @@
               @for (int j=i;j<i+3;j++) {
                 @if (j<Model.Ficcoes.Count) {
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
-                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                      <div class="container-sm border  rounded-4 border-3 p-4 bg-success d-flex flex-column">
                           <h4 class="fw-bold text-center">@Model.Ficcoes[j].Titulo</h4>
                           <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Ficcoes[j].Id" class="align-self-center"><img src="~/images/@Model.Ficcoes[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
                       </div>
@@ -78,7 +78,7 @@
               @for (int j=i;j<i+3;j++) {
                 @if (j<Model.Biografias.Count) {
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
-                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                      <div class="container-sm border  rounded-4 border-3 p-4 bg-success d-flex flex-column">
                           <h4 class="fw-bold text-center">@Model.Biografias[j].Titulo</h4>
                           <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Biografias[j].Id" class="align-self-center"><img src="~/images/@Model.Biografias[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
                       </div>
@@ -110,7 +110,7 @@
               @for (int j=i;j<i+3;j++) {
                 @if (j<Model.Tragedias.Count) {
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
-                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                      <div class="container-sm border  rounded-4 border-3 p-4 bg-success d-flex flex-column">
                           <h4 class="fw-bold text-center">@Model.Tragedias[j].Titulo</h4>
                           <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Tragedias[j].Id" class="align-self-center"><img src="~/images/@Model.Tragedias[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
                       </div>
@@ -142,7 +142,7 @@
               @for (int j=i;j<i+3;j++) {
                 @if (j<Model.Poemas.Count) {
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
-                      <div class="container-sm border border-primary rounded-4 border-3 p-4 bg-success d-flex flex-column">
+                      <div class="container-sm border  rounded-4 border-3 p-4 bg-success d-flex flex-column">
                           <h4 class="fw-bold text-center">@Model.Poemas[j].Titulo</h4>
                           <a asp-controller="Biblioteca" asp-action="Livro" asp-route-id="@Model.Poemas[j].Id" class="align-self-center"><img src="~/images/@Model.Poemas[j].ImageName" alt="Cabajo" class="img-fluid" style="max-height: 300px; object-fit: contain;"></a>
                       </div>
