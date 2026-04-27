@@ -49,3 +49,12 @@ body {
 .hover-brightness:hover {
   filter: brightness(75%);
 }
+
+.hover-transform {
+  transition: transform 0.3s;
+}
+
+.hover-transform:hover {
+  transform: scale(1.15);
+  
+}

@@ -1,7 +1,7 @@
 @model Biblioteca.Models.Livro;
 
 <div class="container d-flex flex-row justify-content-center" style="height: 550px;">
-    <img src="~/images/@Model.ImageName" alt="Imagem do Livro" class="img-thumbnail m-5" style="max-height: 750px; object-fit: contain;">
+    <img src="~/images/@Model.ImageName" alt="Imagem do Livro" class="img-thumbnail rounded-4 m-5" style="max-height: 750px; object-fit: contain;">
     <div class="align-content-center d-flex flex-column gap-3 m-5 align-self-center">
         <h1 class="fw-bold">Título: <span class="fw-normal">@Model.Titulo</span></h1>
         <h3 class="fw-bold">Autor: <span class="fw-normal"><a asp-controller="Biblioteca" asp-action="Autor" asp-route-id="@Model.Autor.Id">@Model.Autor.Nome</a></span></h3>

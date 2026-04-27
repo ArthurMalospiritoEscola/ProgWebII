@@ -14,7 +14,7 @@
                   <div class="mb-4 col d-flex flex-column me-5 ms-5" style="max-width: 300px;">
                       <div class="container-sm border  rounded-4 border-3 p-4 bg-success d-flex flex-column">
                           <h4 class="fw-bold text-center">@Model[j].Nome</h4>
-                          <a asp-controller="Biblioteca" asp-action="Autor" asp-route-id="@Model[j].Id" class="align-self-center"><img src="~/images/@Model[j].imageName" alt="Cabajo" class="img-fluid" style="max-height: 200px; object-fit: contain;"></a>
+                          <a asp-controller="Biblioteca" asp-action="Autor" asp-route-id="@Model[j].Id" class="align-self-center"><img src="~/images/@Model[j].imageName" alt="Cabajo" class="img-thumbnail rounded-4 hover-transform" style="max-height: 200px; object-fit: contain;"></a>
                       </div>
                   </div>
                 }
