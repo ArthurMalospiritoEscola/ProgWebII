@@ -4,12 +4,14 @@ public class Autor
 {
     public int Id {get;set;}
     public string? Nome {get;set;}
-    public string? imageName {get;set;}
+    public string? Descricao {get;set;}
+    public string? ImageName {get;set;}
 
-    public Autor(int id,string Nome,string imageName)
+    public Autor(int id,string Nome,string Descricao,string ImageName)
     {   
         this.Id =id;
         this.Nome= Nome;
-        this.imageName =imageName;
+        this.Descricao = Descricao;
+        this.ImageName =ImageName;
     }
 }

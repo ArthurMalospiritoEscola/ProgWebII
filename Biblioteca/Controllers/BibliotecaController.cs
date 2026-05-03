@@ -9,15 +9,15 @@ public class BibliotecaController : Controller
     public List<Livro> bookList;
     public BibliotecaController() {
         autorList  = new List<Autor> {
-            new Autor(0,"Williwam Shakespeare","shakespeare.jpg"),
-            new Autor(1,"Machado de Assis","machado.jpg"),
-            new Autor(2,"Graciliano Ramos","graciliano.jpg"),
-            new Autor(3,"Fiódor Dostoiévski","fiodor.jpg"),
-            new Autor(4,"George Orwell","georgeOrwell.jpg"),
-            new Autor(5,"Dante Alighieri","danteAlighieri.jpg"),
-            new Autor(6,"Carolina Maria de Jesus","carolinaMariaDeJesus.jpg"),
-            new Autor(7,"Homero","homero.jpg"),
-            new Autor(8,"Nikola Tesla","nikolaTesla.jpeg")
+            new Autor(0, "William Shakespeare", "Dramaturgo e poeta inglês do século XVI, amplamente considerado o maior escritor da língua inglesa. Autor de peças icônicas como Hamlet, Romeu e Julieta e Macbeth. Suas obras exploram temas universais como amor, poder, traição e identidade humana, sendo encenadas até hoje em todo o mundo.", "shakespeare.jpg"),
+            new Autor(1, "Machado de Assis", "Um dos maiores escritores da literatura brasileira, fundador da Academia Brasileira de Letras. Destacou-se no realismo com obras como Dom Casmurro e Memórias Póstumas de Brás Cubas. Sua escrita é marcada por ironia, crítica social e profunda análise psicológica dos personagens.", "machado.jpg"),
+            new Autor(2, "Graciliano Ramos", "Importante escritor do modernismo brasileiro, conhecido por seu estilo direto e crítico. Sua obra mais famosa, Vidas Secas, retrata a dura realidade do sertão nordestino. Também abordou questões sociais e políticas com grande profundidade em seus livros.", "graciliano.jpg"),
+            new Autor(3, "Fiódor Dostoiévski", "Escritor russo do século XIX, referência na literatura psicológica e filosófica. Autor de clássicos como Crime e Castigo e Os Irmãos Karamázov. Suas obras exploram a moral, a culpa, a fé e os conflitos internos do ser humano.", "fiodor.jpg"),
+            new Autor(4, "George Orwell", "Escritor e jornalista britânico, conhecido por sua crítica aos regimes totalitários. Autor de obras marcantes como 1984 e A Revolução dos Bichos. Seus textos abordam vigilância, manipulação política e liberdade individual.", "georgeOrwell.jpg"),
+            new Autor(5, "Dante Alighieri", "Poeta italiano da Idade Média, considerado o pai da língua italiana moderna. Sua principal obra, A Divina Comédia, descreve uma jornada pelo Inferno, Purgatório e Paraíso. É um dos maiores clássicos da literatura mundial.", "danteAlighieri.jpg"),
+            new Autor(6, "Carolina Maria de Jesus", "Escritora brasileira que ganhou notoriedade com o livro Quarto de Despejo. Em sua obra, relata o cotidiano na favela com olhar sensível e realista. Tornou-se um importante símbolo da literatura periférica e da denúncia social.", "carolinaMariaDeJesus.jpg"),
+            new Autor(7, "Homero", "Poeta da Grécia Antiga, tradicionalmente apontado como autor da Ilíada e da Odisseia. Suas obras narram feitos heroicos e aventuras mitológicas. São fundamentais para a cultura e literatura ocidental.", "homero.jpg"),
+            new Autor(8, "Nikola Tesla", "Inventor e engenheiro elétrico, pioneiro no desenvolvimento da corrente alternada. Contribuiu significativamente para a eletricidade moderna e diversas tecnologias. É reconhecido como um dos grandes gênios da ciência.", "nikolaTesla.jpeg")
         }; 
         bookList  = new List<Livro> {
             new Livro(0,"Hamlet",autorList[0],112,"Tragédia",new DateOnly(1600,12,25),"hamlet.jpeg"),
@@ -72,7 +72,7 @@ public class BibliotecaController : Controller
         var autor = autorList.FirstOrDefault(x => x.Id==id);
 
         var Obras = bookList.Where(x => x.Autor.Id==id).ToList();
-
+        Console.WriteLine(autor.ImageName);
         
         return View((autor, Obras));
     }

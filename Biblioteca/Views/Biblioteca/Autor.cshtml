@@ -1,9 +1,10 @@
 @model (Autor autor, List<Livro> Obras);
 
 <div class="container d-flex flex-row justify-content-center" style="height: 550px;">
-    <img src="~/images/@Model.autor.imageName" alt="Imagem do Livro" class="img-thumbnail m-5" style="max-height: 750px; object-fit: contain;">
+    <img src="~/images/@Model.autor.ImageName" alt="Imagem do Livro" class="img-thumbnail m-5" style="max-height: 750px; object-fit: contain;">
     <div class="align-content-center d-flex flex-column gap-3 m-5 align-self-center">
         <h1 class="fw-bold">Nome: <span class="fw-normal">@Model.autor.Nome</span></h1>
+        <p style="text-align:justify;" class="me-5">@Model.autor.Descricao</p>
     </div>
 </div>
 
