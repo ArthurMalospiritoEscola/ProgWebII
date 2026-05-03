@@ -72,7 +72,6 @@ public class BibliotecaController : Controller
         var autor = autorList.FirstOrDefault(x => x.Id==id);
 
         var Obras = bookList.Where(x => x.Autor.Id==id).ToList();
-        Console.WriteLine(autor.ImageName);
         
         return View((autor, Obras));
     }
@@ -97,4 +96,14 @@ public class BibliotecaController : Controller
     {
         return View(autorList);
     }
+    //Provisório, colocaria em outro controller
+    public IActionResult CriarAutor()
+    {
+        return View();
+    }
+    public IActionResult CriarLivro()
+    {
+        return View();
+    }
+
 }
