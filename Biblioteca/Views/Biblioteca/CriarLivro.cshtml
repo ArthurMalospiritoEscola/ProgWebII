@@ -1,0 +1,74 @@
+@model List<Biblioteca.Models.Autor>;
+
+<div class="form-out" style="margin-top: 6rem; margin-bottom:6rem;">
+    <form class="form" style="" action="" method="post" id="form">
+        <h3 style="text-align: center;"><b>Adicione um Livro</b></h3>
+
+        <label class="form-label" for="tituloInput" >Título:</label>
+        <input class="form-input" style="width: 20rem;" type="text" name="titulo" id="tituloInput"  placeholder="Digite o Título do livro..." required>
+
+        <label class="form-label" for="autorInput">Autor:</label>
+        <input class="form-input" style="width: 20rem;" type="text" name="autor" id="autorInput" list="autores" placeholder="Digite o nome do Autor..." required>
+        <datalist id="autores">
+            @foreach (var autor in @Model) {
+                <option value="@autor.Nome">@autor.Nome</option>
+            }
+        </datalist>
+        <small style="margin-top: -0.75rem;">Não encotrou seu Autor? <a asp-controller="Biblioteca" asp-action="CriarAutor" style="text-decoration: underline; color: aqua;">Crie aqui!</a></small>
+        <small id="errorField" style="display: none; color: #E57373;"><b>Autor não encontrado! Crie um novo &uarr;</b></small>
+
+        <label class="form-label" for="generoInput">Gênero:</label>
+        <select class="form-select" name="genero" id="generoInput" required>
+            <option value="" selected disabled>Escolha um gênero</option>
+            @foreach (var genero in Enum.GetValues(typeof(Genero))) {
+                <option value="@genero">@genero</option>
+            }
+        </select>
+
+        <label class="form-label" for="numpagsInput">Número de páginas:</label>
+        <input class="form-input" type="number" step="1" min="0" name="numpags" id="numpagsInput" placeholder="0" required>
+
+        <label class="form-label" for="dataInput">Data de publicação:</label>
+        <input class="form-input" type="date" name="data" id="dataInput" required>
+
+        <label class="form-label" for="imageInput">Imagem do Livro:</label>
+        <input class="form-input" type="file" name="image" id="imageInput" style="background-color: transparent;" required>
+
+        <button type="submit" class="form-button button-primary">Adicionar Livro</button>
+    </form>
+</div>
+
+<script>
+
+    //Maracutaia para inserir autor certo
+    const values = [
+    @for (int i=0;i<Model.Count;i++) {
+        if (i!=@Model.Count-1) {
+            @Html.Raw($"\"{@Model[i].Nome}\",");
+        } else {
+            @Html.Raw($"\"{@Model[i].Nome}\"");
+        }
+    }
+    ];
+    const errorField = document.getElementById("errorField");
+    const autorInput = document.getElementById("autorInput");
+    const form = document.getElementById("form")
+
+    form.addEventListener("submit", (event) => {
+        if (autorInput.value && !values.includes(autorInput.value)) {
+            event.preventDefault()
+            errorField.style.display="flex"
+            autorInput.style.border = "1px solid red"
+        } else {
+            errorField.style.display = "none"
+            autorInput.style.border = "none"
+        }
+    })
+
+    //Sempre ficar valores inteiros no numpagsInput
+    const numpagsInput = document.getElementById("numpagsInput")
+    numpagsInput.addEventListener("input", (event) => {
+        event.target.value = Math.trunc(event.target.value);
+    });
+
+</script>

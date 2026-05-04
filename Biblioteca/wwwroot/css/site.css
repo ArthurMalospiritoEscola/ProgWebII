@@ -95,6 +95,7 @@ body {
   background-color: #E0E0E0;
   border: none;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+  height: 2.5rem;
 }
 
 .form-textarea {
@@ -104,6 +105,20 @@ body {
   border-radius: 0.5rem 0rem 0.5rem 0rem;
   border: none;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.form-select {
+  margin-top: 0px;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem 0rem 0.5rem 0rem;
+  background-color: #E0E0E0 !important;
+  border: none;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+  height: 2.5rem;
+}
+
+.form-select option {
+  background-color: #E0E0E0 !important;
 }
 
 .form-button {
@@ -121,4 +136,14 @@ body {
 
 .form-button:hover {
   filter: brightness(90%);
+}
+
+.a-default {
+  color: white;
+
+}
+
+.a-default:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

@@ -20,18 +20,18 @@ public class BibliotecaController : Controller
             new Autor(8, "Nikola Tesla", "Inventor e engenheiro elétrico, pioneiro no desenvolvimento da corrente alternada. Contribuiu significativamente para a eletricidade moderna e diversas tecnologias. É reconhecido como um dos grandes gênios da ciência.", "nikolaTesla.jpeg")
         }; 
         bookList  = new List<Livro> {
-            new Livro(0,"Hamlet",autorList[0],112,"Tragédia",new DateOnly(1600,12,25),"hamlet.jpeg"),
-            new Livro(1,"Memórias póstumas de Brás Cubas",autorList[1],225,"Romance",new DateOnly(1881,11,12),"memoriasPostumas.jpg"),
-            new Livro(2,"Dom Casmurro",autorList[1],250,"Romance",new DateOnly(1889,09,01),"domCasmurro.jpeg"),
-            new Livro(3,"Vidas secas",autorList[2],143,"Romance",new DateOnly(1938,06,12),"vidasSecas.jpeg"),
-            new Livro(4,"Memórias do subsolo",autorList[3],101,"Romance",new DateOnly(1864,02,14),"memoriasSubsolo.jpeg"),
-            new Livro(5,"Revolução dos bichos",autorList[4],132,"Ficção",new DateOnly(1945,08,17),"revolucaoBichos.jpeg"),
-            new Livro(6,"1984",autorList[4],300,"Ficção",new DateOnly(1949,06,8),"1984.jpeg"),
-            new Livro(7,"Divina Comédia",autorList[5],615,"Poema",new DateOnly(1472,04,11),"divinaComedia.jpeg"),
-            new Livro(8,"Quarto de Despejo",autorList[6],173,"Biografia",new DateOnly(1960,07,27),"quartoDespejo.jpeg"),
-            new Livro(9,"Odisseia",autorList[7],600,"Poema",new DateOnly(01,01,01),"odisseia.jpg"),
-            new Livro(10,"Minhas Invenções",autorList[8],89,"Biografia",new DateOnly(1943,01,07),"minhasInvencoes.jpg"),
-            new Livro(11,"Otelo, o Mouro de Veneza",autorList[0],167,"Tragédia",new DateOnly(1604,03,03),"hotelo.jpg")
+            new Livro(0,"Hamlet",autorList[0],112,Genero.Tragedia,new DateOnly(1600,12,25),"hamlet.jpeg"),
+            new Livro(1,"Memórias póstumas de Brás Cubas",autorList[1],225,Genero.Romance,new DateOnly(1881,11,12),"memoriasPostumas.jpg"),
+            new Livro(2,"Dom Casmurro",autorList[1],250,Genero.Romance,new DateOnly(1889,09,01),"domCasmurro.jpeg"),
+            new Livro(3,"Vidas secas",autorList[2],143,Genero.Romance,new DateOnly(1938,06,12),"vidasSecas.jpeg"),
+            new Livro(4,"Memórias do subsolo",autorList[3],101,Genero.Romance,new DateOnly(1864,02,14),"memoriasSubsolo.jpeg"),
+            new Livro(5,"Revolução dos bichos",autorList[4],132,Genero.Ficcao,new DateOnly(1945,08,17),"revolucaoBichos.jpeg"),
+            new Livro(6,"1984",autorList[4],300,Genero.Ficcao,new DateOnly(1949,06,8),"1984.jpeg"),
+            new Livro(7,"Divina Comédia",autorList[5],615,Genero.Poema,new DateOnly(1472,04,11),"divinaComedia.jpeg"),
+            new Livro(8,"Quarto de Despejo",autorList[6],173,Genero.Biografia,new DateOnly(1960,07,27),"quartoDespejo.jpeg"),
+            new Livro(9,"Odisseia",autorList[7],600,Genero.Poema,new DateOnly(01,01,01),"odisseia.jpg"),
+            new Livro(10,"Minhas Invenções",autorList[8],89,Genero.Biografia,new DateOnly(1943,01,07),"minhasInvencoes.jpg"),
+            new Livro(11,"Otelo, o Mouro de Veneza",autorList[0],167,Genero.Tragedia,new DateOnly(1604,03,03),"hotelo.jpg")
         };
     }
     
@@ -84,11 +84,11 @@ public class BibliotecaController : Controller
         List<Livro> Tragedias;
         List<Livro> Poemas;
 
-        Romances = bookList.Where(x => x.Genero=="Romance").ToList();
-        Ficcoes = bookList.Where(x => x.Genero=="Ficção").ToList();
-        Biografias = bookList.Where(x => x.Genero=="Biografia").ToList();
-        Tragedias = bookList.Where(x => x.Genero=="Tragédia").ToList();
-        Poemas = bookList.Where(x => x.Genero=="Poema").ToList();
+        Romances = bookList.Where(x => x.Genero==Genero.Romance).ToList();
+        Ficcoes = bookList.Where(x => x.Genero==Genero.Ficcao).ToList();
+        Biografias = bookList.Where(x => x.Genero==Genero.Biografia).ToList();
+        Tragedias = bookList.Where(x => x.Genero==Genero.Tragedia).ToList();
+        Poemas = bookList.Where(x => x.Genero==Genero.Poema).ToList();
 
         return View((Romances,Ficcoes,Biografias,Tragedias,Poemas));
     }
@@ -96,6 +96,7 @@ public class BibliotecaController : Controller
     {
         return View(autorList);
     }
+
     //Provisório, colocaria em outro controller
     public IActionResult CriarAutor()
     {
@@ -103,7 +104,7 @@ public class BibliotecaController : Controller
     }
     public IActionResult CriarLivro()
     {
-        return View();
+        return View(autorList);
     }
 
 }

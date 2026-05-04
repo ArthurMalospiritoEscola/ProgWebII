@@ -1,14 +1,18 @@
-<h1 style="text-align: center;" class="mb-5 fw-bold">Adicione um Autor</h1>
 
-<div class="form-out">
+
+<div class="form-out" style="margin-top: 6rem;">
     <form class="form" style="" action="" method="post">
-        <label class="form-label" for="nameInput" >Nome:</label>
-        <input class="form-input" type="text" name="name" id="nameInput" style="width: 20rem;" placeholder="Digite o nome do Autor..." required>
+        <h3 style="text-align: center;"><b>Adicione um Autor</b></h3>
+
+        <label class="form-label" for="nomeInput" >Nome:</label>
+        <input class="form-input" style="width: 20rem;" type="text" name="nome" id="nomeInput"  placeholder="Digite o nome do Autor..." required>
+
         <label class="form-label" for="descricaoInput">Descrição:</label>
         <textarea name="descricao" id="descricaoInput" class="form-textarea" placeholder="Dê uma breve descrição ao Autor"></textarea required>
-        <label class="form-label" for="imageInput">Imagem:</label>
-        <input class="form-input" type="file" name="image" id="imageInput" style="background-color: transparent;" required>
 
-        <button type="submit" class="form-button button-primary">Criar Autor</button>
+        <label class="form-label" for="imageInput">Imagem do Autor:</label>
+        <input class="form-input" style="background-color: transparent;" type="file" name="image" id="imageInput" required>
+
+        <button type="submit" class="form-button button-primary">Adicionar Autor</button>
     </form>
 </div>

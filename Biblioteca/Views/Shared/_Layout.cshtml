@@ -20,14 +20,27 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1" style="border-left: 1px solid white;">
                         <li class="nav-item">
                             <a class="nav-link underline-hover text-white" asp-area="" asp-controller="Biblioteca" asp-action="Livros">Livros</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item me-1" style="border-right: 1px solid white;">
                             <a class="nav-link underline-hover text-white" asp-area="" asp-controller="Biblioteca" asp-action="Autores">Autores</a>
                         </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                            <a class="underline-hover text-white dropdown-toggle nav-link" style="text-decoration: none !important;" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Adicionar
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item a-default" asp-controller="Biblioteca" asp-action="CriarLivro">Adicionar Livro</a></li>
+                                <li><a class="dropdown-item a-default" asp-controller="Biblioteca" asp-action="CriarAutor">Adicionar Autor</a></li>
+                            </div>
+                        </li>
+
                     </ul>
+
                 </div>
             </div>
         </nav>
