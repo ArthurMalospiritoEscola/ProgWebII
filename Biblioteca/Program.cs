@@ -3,12 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//Variável de conexão
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); //Olhar variável de DefaultConection, pode estar errada
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<BibliotecaContext> (options => options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString)));
+//
+builder.Services.AddDbContext<BibliotecaContext> (options => options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString))); //Falta opção de reconectar automaticamente
 
 var app = builder.Build();
 
