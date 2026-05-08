@@ -1,4 +1,5 @@
 using Biblioteca.Models;
+using Biblioteca.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,9 @@ builder.Services.AddControllersWithViews();
 
 //
 builder.Services.AddDbContext<BibliotecaContext> (options => options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString))); //Falta opção de reconectar automaticamente
+
+builder.Services.AddScoped<ILivroRepository,LivroRepository>();
+builder.Services.AddScoped<IAutorRepository,AutorRepository>();
 
 var app = builder.Build();
 

@@ -14,7 +14,7 @@
 
                     <div class="m-3">
                         <h5 class="fw-bold">@livro.Titulo</h5>
-                        <p>Autor: <span class="fst-italic"><a asp-area="Biblioteca" asp-action="Autor" asp-route-id="@livro.Autor.Id" class="text-white hover-brightness">@livro.Autor.Nome</a><span/></p>
+                        <p>Autor: <span class="fst-italic"><a asp-area="Biblioteca" asp-action="Autor" asp-route-id="@livro.AutorId" class="text-white hover-brightness">@livro.Autor?.Nome</a><span/></p>
                         <p>Número de páginas: <span class="fst-italic">@livro.NumPaginas<span/></p>
                         <p>Gênero: <span class="fst-italic">@livro.Genero<span/></p>
                         <p>Data de publicação: <span class="fst-italic">@livro.DataPublicacao<span/></p>

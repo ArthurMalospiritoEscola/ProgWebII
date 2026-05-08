@@ -7,11 +7,4 @@ public class Autor
     public string? Descricao {get;set;}
     public string? ImageName {get;set;}
 
-    public Autor(int id,string Nome,string Descricao,string ImageName)
-    {   
-        this.Id =id;
-        this.Nome= Nome;
-        this.Descricao = Descricao;
-        this.ImageName =ImageName;
-    }
 }

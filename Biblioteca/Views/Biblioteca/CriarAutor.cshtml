@@ -1,17 +1,17 @@
 
 
-<div class="form-out" style="margin-top: 6rem;">
-    <form class="form" style="" action="" method="post">
+<div class="form-out" style="margin-top: 6rem; margin-bottom: 6rem;">
+    <form class="form" method="post" asp-action="CriarAutor" asp-controller="Biblioteca">
         <h3 style="text-align: center;"><b>Adicione um Autor</b></h3>
 
         <label class="form-label" for="nomeInput" >Nome:</label>
-        <input class="form-input" style="width: 20rem;" type="text" name="nome" id="nomeInput"  placeholder="Digite o nome do Autor..." required>
+        <input class="form-input" style="width: 20rem;" type="text" name="Nome" id="nomeInput"  placeholder="Digite o nome do Autor..." required>
 
         <label class="form-label" for="descricaoInput">Descrição:</label>
-        <textarea name="descricao" id="descricaoInput" class="form-textarea" placeholder="Dê uma breve descrição ao Autor"></textarea required>
+        <textarea name="Descricao" id="descricaoInput" class="form-textarea" placeholder="Dê uma breve descrição ao Autor"></textarea required>
 
         <label class="form-label" for="imageInput">Imagem do Autor:</label>
-        <input class="form-input" style="background-color: transparent;" type="file" name="image" id="imageInput" required>
+        <input class="form-input" style="background-color: transparent;" type="file" name="ImageName" id="imageInput" required>
 
         <button type="submit" class="form-button button-primary">Adicionar Autor</button>
     </form>
