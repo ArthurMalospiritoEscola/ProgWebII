@@ -4,15 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Variável de conexão
+//Importa a variável de conexão com o Banco de dados de appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); //Olhar variável de DefaultConection, pode estar errada
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//
-builder.Services.AddDbContext<BibliotecaContext> (options => options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString))); //Falta opção de reconectar automaticamente
+//Cria a relação do BibliotecaContext com o bano de dados escolhido.
+builder.Services.AddDbContext<BibliotecaContext> (options => options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString)));
 
+//Adiciona os dois repositorys para identificação do banco de dados.
 builder.Services.AddScoped<ILivroRepository,LivroRepository>();
 builder.Services.AddScoped<IAutorRepository,AutorRepository>();
 
