@@ -1,6 +1,7 @@
 using Biblioteca.Models;
 using Biblioteca.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Biblioteca.Controllers;
 
@@ -97,7 +98,7 @@ public class BibliotecaController : Controller
     /// <summary>
     /// Rota que represente a escolha de todos os livros separados por gênero.
     /// </summary>
-    /// <returns>Retorna a View com todas as listas de livros separadas por Gênero</returns>
+    /// <returns>Retorna a View com todas as listas de livros separadas por Gênero</returns>]
     public async Task<IActionResult> Livros()
     {
         //Pega os dados de livros no banco de dados por meio do livroRepository.
@@ -135,8 +136,12 @@ public class BibliotecaController : Controller
     /// <returns>Retorna a View com lista de autores para serem escolhidos como autor do livro.</returns>
     public async Task<IActionResult> CriarLivro()
     {
-        List<Autor> autores = await _autorRepository.BuscarTodosAutoresAsync();
-        return View(autores);
+        ViewBag.Autores = new SelectList(
+            await _autorRepository.BuscarTodosAutoresAsync(),
+            "id",
+            "nome"
+        );
+        return View();
     }
     /// <summary>
     /// Rota POST de criar livro.
@@ -145,10 +150,17 @@ public class BibliotecaController : Controller
     /// <param name="livro">Objeto de livro criado no formulário.</param>
     /// <returns>Retorna um redirecionamento do usuário para tela de livros para ver se seu livro foi criado.</returns>
     [HttpPost]
-    public async Task<IActionResult> CriarLivroAsync(Livro livro)
+    public async Task<IActionResult> CriarLivroAsync(CriarLivroViewModel livroViewModel)
     {
-        //Adiciona o livro criado para dentro do banco de dados por meio do repository.
-        await _livroRepository.CriarLivroAsync(livro);
+        Livro livro = new()
+        {
+            Titulo = livroViewModel.Titulo,
+            DataPublicacao = livroViewModel.DataPublicacao,
+            Genero = livroViewModel.Genero,
+            NumPaginas = livroViewModel.NumPaginas,
+            ImageName = livroViewModel.ImageName
+        };
+        await _livroRepository.CriarLivroAsync(livro,livroViewModel.AutorId);
         return RedirectToAction("Livros");
     }
     /// <summary>

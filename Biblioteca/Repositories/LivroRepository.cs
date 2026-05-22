@@ -27,8 +27,9 @@ public class LivroRepository: ILivroRepository
     /// <returns>
     /// Retorna verdadeiro caso o livro seja salvo com sucesso.
     /// </returns>
-    public async Task<bool> CriarLivroAsync(Livro livro)
+    public async Task<bool> CriarLivroAsync(Livro livro, int AutorId)
     {
+        livro.Autor = await _context.Autores.FirstOrDefaultAsync(x=> x.Id==AutorId);
         await _context.Livros.AddAsync(livro);
         await _context.SaveChangesAsync();
         return true;
@@ -47,6 +48,6 @@ public class LivroRepository: ILivroRepository
 
 public interface ILivroRepository
 {
-    Task<bool> CriarLivroAsync(Livro livro);
+    Task<bool> CriarLivroAsync(Livro livro, int AutorId);
     Task<List<Livro>> BuscarTodosLivrosAsync();
 }

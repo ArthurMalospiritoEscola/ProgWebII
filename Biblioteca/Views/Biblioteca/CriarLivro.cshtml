@@ -1,4 +1,4 @@
-@model List<Biblioteca.Models.Autor>;
+@model Biblioteca.Models.CriarLivroViewModel;
 
 <div class="form-out" style="margin-top: 6rem; margin-bottom:6rem;">
     <form class="form" method="post" id="form" asp-action="CriarLivro" asp-controller="Biblioteca">
@@ -10,7 +10,7 @@
         <label class="form-label" for="autorInput">Autor:</label>
         <input class="form-input" style="width: 20rem;" type="text" id="autorInput" list="autores" placeholder="Digite o nome do Autor..." required>
         <datalist id="autores">
-            @foreach (var autor in @Model) {
+            @foreach (var autor in @ViewBag.Autores) {
                 <option value="@autor.Nome">@autor.Nome</option>
             }
         </datalist>
@@ -42,7 +42,7 @@
 <script>
 
     //Maracutaia para inserir autor certo
-    const values = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ToDictionary(a => a.Nome!, a => a.Id)
+    const values = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.Autores)
     ));
     const errorField = document.getElementById("errorField");
     const autorInput = document.getElementById("autorInput");
