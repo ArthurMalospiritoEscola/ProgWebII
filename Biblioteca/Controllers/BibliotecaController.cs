@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Biblioteca.Controllers;
 
 /// <summary>
-/// Controlar principal responsável por organizar as rotas de acesso da biblioteca.
+/// Controller principal responsável por organizar as rotas de acesso da biblioteca.
 /// </summary>
 public class BibliotecaController : Controller
 {
